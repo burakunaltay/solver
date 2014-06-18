@@ -29,6 +29,7 @@ def main():
 	for word in wordlist:
 		match = 0
 		temp_dict = deepcopy(letter_dict)
+
 		if len(word) > len(inletters):
 			continue
 		
@@ -38,6 +39,8 @@ def main():
 				temp_dict[letter] -= 1
 				if(temp_dict[letter] == 0):
 					del temp_dict[letter]
+			else:
+			  break
 
 		if(match == len(word)):
 			match_dict[word] = 0
