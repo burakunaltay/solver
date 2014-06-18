@@ -17,27 +17,22 @@ def main():
 	#get user's letters and format them
 	inletters = input('Input your letters: ').upper()
 	inletters = re.sub(r'\s+', '', inletters)
-	print(inletters)
 	letter_dict = {}
 	for l in inletters:
 		if l in letter_dict:
 			letter_dict[l] += 1
 		else:
 			letter_dict[l] = 1
-	for l in letter_dict:
-		print(l,letter_dict[l])
 	
 	match_dict = {}
 	#for every possible word, see if letters of word match letters given
 	for word in wordlist:
 		match = 0
 		temp_dict = deepcopy(letter_dict)
-#if len(word) > len(inletters):
-#			print('longer')
-#			continue
-#print()
+		if len(word) > len(inletters):
+			continue
+		
 		for letter in word:
-#			print(letter, end='')
 			if letter in temp_dict:
 				match += 1
 				temp_dict[letter] -= 1
