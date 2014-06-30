@@ -82,7 +82,7 @@ int main() {
 					auto find = seen.find(temp[i]);
 
 					if(find != seen.end()) { 
-						if(find->second <= letters[find->first])
+						if(find->second < letters[find->first])
 							seen[find->first]++;
 						else
 							break;
